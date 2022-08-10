@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:insta_clone/util/bubble_stories.dart';
 
 class UserAccount extends StatelessWidget {
+  final List storyCaption = [
+    'holyday',
+    'sunday',
+    'work',
+    'fun',
+    'sports',
+    'hobbies',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,6 +132,18 @@ class UserAccount extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+          ),
+          Expanded(
+            child: Container(
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: storyCaption.length,
+                  itemBuilder: (context, index) {
+                    return Stories(
+                      text: storyCaption[index],
+                    );
+                  }),
             ),
           )
         ],
